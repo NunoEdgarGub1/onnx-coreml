@@ -25,7 +25,9 @@ elif [ "$TRAVIS_OS_NAME" == "osx" ]; then
 
   # Setup Python.
   export PYTHON_DIR="/usr/local/bin"
-  brew upgrade python
+  if [ "${PYTHON_VERSION}" == "python3" ]; then
+    brew upgrade python
+  fi
   brew install ${PYTHON_VERSION}
 else
   echo Unknown OS: $TRAVIS_OS_NAME
@@ -33,7 +35,7 @@ else
 fi
 
 pip install virtualenv
-virtualenv -p "${PYTHON_DIR}/${PYTHON_VERSION}" "${HOME}/virtualenv"
+virtualenv -p "${PYTHON_VERSION}" "${HOME}/virtualenv"
 source "${HOME}/virtualenv/bin/activate"
 python --version
 
