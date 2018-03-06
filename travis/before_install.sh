@@ -2,6 +2,8 @@
 
 # Don't source setup.sh here, because the virtualenv might not be set up yet
 
+set -ex
+
 export NUMCORES=`grep -c ^processor /proc/cpuinfo`
 if [ ! -n "$NUMCORES" ]; then
   export NUMCORES=`sysctl -n hw.ncpu`
@@ -20,7 +22,7 @@ if [ "$TRAVIS_OS_NAME" == "linux" ]; then
 
   # Setup Python.
   export PYTHON_DIR="/usr/bin"
-  sudo apt-get install -y python-tornado
+  find /opt
 elif [ "$TRAVIS_OS_NAME" == "osx" ]; then
   brew install ccache protobuf
 

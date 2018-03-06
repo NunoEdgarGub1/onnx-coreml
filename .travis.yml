@@ -19,9 +19,6 @@ env:
   global:
     - PB_VERSION=2.6.1
 
-virtualenv:
-  system_site_packages: true
-
 before_install:
   - ./travis/before_install.sh
 
