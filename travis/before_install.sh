@@ -20,6 +20,7 @@ if [ "$TRAVIS_OS_NAME" == "linux" ]; then
 
   # Setup Python.
   export PYTHON_DIR="/usr/bin"
+  sudo apt-get install -y python-tornado
 elif [ "$TRAVIS_OS_NAME" == "osx" ]; then
   brew install ccache protobuf
 
